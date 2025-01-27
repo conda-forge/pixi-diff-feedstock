@@ -11,9 +11,7 @@ source:
   sha256: f93b41ae75bfcc4001840a3d10ade082a1b4fa8e58437e6610c071ad7292c223
 
 build:
-  number: 1
-  # https://github.com/conda-forge/staged-recipes/pull/28929#issuecomment-2613880733
-  skip: win
+  number: 2
 
 requirements:
   build:
