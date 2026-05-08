@@ -1,6 +1,6 @@
 context:
   name: pixi-diff
-  version: "0.1.4"
+  version: "0.1.5"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/pavelzw/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: 6e45464bd1c10a697615747290023406680b27b101e030dbc28424748d2b5adb
+  sha256: 563ad27ca62cea1262608d0dc9d475787dc82dbe03c2e6d538aa23ae23ef1d24
 
 build:
   number: 0
