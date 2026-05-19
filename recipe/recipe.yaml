@@ -21,6 +21,8 @@ build:
         then:
           - cargo auditable install --locked --no-track --bins --root ${{ PREFIX }} --path .
         else:
+          # path too long for pixi_core subpackage, https://github.com/prefix-dev/pixi/issues/3691
+          - set CARGO_HOME=C:\.cargo
           - cargo auditable install --locked --no-track --bins --root %LIBRARY_PREFIX% --path .
       - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
 
