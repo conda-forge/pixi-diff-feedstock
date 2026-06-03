@@ -36,6 +36,8 @@ requirements:
     - ${{ compiler('rust') }}
     - cargo-bundle-licenses
     - cargo-auditable
+    - cmake
+    - make
 
 tests:
   - script:
