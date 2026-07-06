@@ -1,13 +1,12 @@
 context:
-  name: pixi-diff
   version: "0.1.7"
 
 package:
-  name: ${{ name|lower }}
+  name: pixi-diff
   version: ${{ version }}
 
 source:
-  url: https://github.com/pavelzw/${{ name }}/archive/v${{ version }}.tar.gz
+  url: https://github.com/pavelzw/pixi-diff/archive/v${{ version }}.tar.gz
   sha256: 8e5c024f0d0f22adda919648b9517de08221bcda1fa0127b27b208e74fd0f4ac
 
 build:
