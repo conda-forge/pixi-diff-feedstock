@@ -25,6 +25,14 @@ build:
         else:
           # path too long for pixi_core subpackage, https://github.com/prefix-dev/pixi/issues/3691
           - set CARGO_HOME=C:\.cargo
+          # `zstd` is a build dependency of `uv-python`, so cargo also compiles `zstd-sys` for
+          # the build platform. `CC=cl.exe` resolves to the ARM64-targeting cl.exe, so those
+          # objects come out ARM64 and the x64 build script fails to link. cc-rs ignores
+          # `CC_FOR_BUILD`, so forward it explicitly.
+          - if: build_platform != target_platform
+            then:
+              - set "CC_x86_64_pc_windows_msvc=%CC_FOR_BUILD%"
+              - set "CXX_x86_64_pc_windows_msvc=%CXX_FOR_BUILD%"
           - cargo auditable install --locked --no-track --bins --root %LIBRARY_PREFIX% --path .
       - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
 
